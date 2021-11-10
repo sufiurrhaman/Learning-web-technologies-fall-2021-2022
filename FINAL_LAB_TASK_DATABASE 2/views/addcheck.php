@@ -1,11 +1,8 @@
 <?php
 	session_start();
 	require_once('../model/usersModel.php');
-    $id = $_GET['id'];
-    //echo "$id";
 
 	if(isset($_POST['submit'])){
-		
 
 		$username 	= $_POST['username'];
 		$bprice 	= $_POST['bprice'];
@@ -19,42 +16,40 @@
 				if($_POST['sprice'] != ""){
 					if ($type == "display"){
 						$user = [
-							    'id' => $id,
 								'username'=> $username, 
 								'bprice'=>$bprice, 
 								'sprice'=> $sprice, 
 								'type'=>'Yes'
 							];
 							
-					$status = editProduct($user);
+					$status = addProduct($user);
 					}else
 					{ 
-					$user = [   
-						        'id' => $id,
+					$user = [
 								'username'=> $username, 
 								'bprice'=>$bprice, 
 								'sprice'=> $sprice, 
 								'type'=>'No'
 							];
 							
-					$status = editProduct($user);
+					$status = addProduct($user);
 				}
 
 					if($status){
-						header('location: ../views/productlist.php');
+						header('location: add.php');
 					}else{
 						echo "try again...";
 					}
 					
 
 				}else{
-					echo "Invalid Selling Price...";
+					echo "Invalid email...";
 				}	
 			}else{
-				echo "Invalid Buying Price...";
+				echo "Invalid password...";
 			}
 		}else{
-			echo "Invalid name...";
+			echo "Invalid username...";
 		}
 	}
 ?>

@@ -1,12 +1,14 @@
+
 <html>
 <head>
-	<title>Create New User</title>
+	<title>ADD Product</title>
 </head>
 <body>
 	<center>	
 		<a href="../index.html">Back </a> |
 		
 	</center>
+
 	<form method="post" action="addcheck.php">
 		<fieldset>
 			<legend>ADD PRODUCT</legend>
